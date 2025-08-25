@@ -29,8 +29,9 @@ $$
 \left( \frac{c_t^{1-\theta}}{1-\theta} - \frac{h_t^{1+\gamma}}{1+\gamma} \right) \tag{1}\\[4pt]
 \text{s.t.}\quad 
 & (1+\tau_s)c_t + a_{t+1} = i_t - T(i_t) + a_t - T^{a}(a_t)\,. \\
+& m_t\coloneqq i_t - T(i_t) + a_t - T^{a}(a_t)\\
 & i_t = w_te_th_t+r_{t-1}a_t\\
-&a_{t+1} \geq 0 \\
+&a_{t+1} \geq 0 \iff (1+\tau_s)c_t\leq m_t \iff c_t\leq\frac{m_t}{1+\tau_s}\\
 \end{aligned}
 $$
 Setting Lagrangian 
@@ -49,9 +50,9 @@ $$
 
 $$
 \begin{aligned}
-[a_{t+1}]:\ & \mathbb{E_0}[\beta^t\{-\lambda_t+\mu_t\}+\beta_{t+1}\{\lambda_{t+1}[r_{t-1}-T(i_t)r_{t-1}+1-T^a(a_{t+1})]\}]=0 \\
-&= \mathbb{E_0}[-\lambda_t+\mu_t+\beta\{\lambda_{t+1}(r_{t-1}-T(i_t)r_{t-1}+1-T^a(a_{t+1}))\}]=0 \\
-&\implies \mathbb{E_0}[\mu_t] = \mathbb{E_0}[\lambda_t-\lambda_{t+1}\beta(r_{t-1}-T(i_t)r_{t-1}+1-T^a(a_{t+1}))]
+[a_{t+1}]:\ & \mathbb{E_0}[\beta^t\{-\lambda_t+\mu_t\}+\beta_{t+1}\{\lambda_{t+1}[r_{t}-T'(i_{t+1})r_{t}+1-T'^a(a_{t+1})]\}]=0 \\
+&= \mathbb{E_0}[-\lambda_t+\mu_t+\beta\{\lambda_{t+1}[r_{t}-T'(i_{t+1})r_{t}+1-T'^a(a_{t+1})]\}]=0 \\
+&\implies \mathbb{E_0}[\mu_t] = \mathbb{E_0}[\lambda_t-\lambda_{t+1}[r_{t}-T'(i_{t+1})r_{t}+1-T'^a(a_{t+1})]]
 \end{aligned}
 \tag{3}
 $$
@@ -64,14 +65,14 @@ $$
 $$
 Combining (2) and (3), we get the Euler equation for consimption and saving 
 $$
-\mu_t = \frac{\mathbb{E_0}U'(c_t, h_t)}{1+\tau_s} - \frac{\mathbb{E_0}U'(c_{t+1}, h_{t+1})}{1+\tau_s}\{r_{t-1}-T(i_t)r_{t-1}+1-T^a(a_{t+1})\} \tag{5}
+\mu_t = \frac{\mathbb{E_0}U'(c_t, h_t)}{1+\tau_s} - \frac{\mathbb{E_0}U'(c_{t+1}, h_{t+1})}{1+\tau_s}\{r_{t}-T'(i_{t+1})r_{t}+1-T'^a(a_{t+1})\} \tag{5}
 $$
 By KKT conditiosn : $\mu_t>0$, $a_{t+1}>0$, and $\mu a_{t+1}=0$, applying the Fischer-Burmeister (FB) function $\psi^{\text{FB}}(x, y) = x+y-\sqrt{x^2+y^2} $ and turning into unit-free form 
 $$
-x\coloneqq 1-\frac{\mathbb{E_0}U'(c_{t+1}, h_{t+1})}{\mathbb{E_0}U'(c_{t}, h_{t})}\{r_{t-1}-T(i_t)r_{t-1}+1-T^a(a_{t+1})\} \tag{6}
+x\coloneqq 1-\frac{\mathbb{E_0}U'(c_{t+1}, h_{t+1})}{\mathbb{E_0}U'(c_{t}, h_{t})}\{r_{t}-T'(i_{t+1})r_{t}+1-T'^a(a_{t+1})\} \tag{6}
 $$
 $$
-y\coloneqq 
+y\coloneqq a_{t+1}\in[\underline{a}, m_t], \quad \underline{a}>0
 $$
 
 
